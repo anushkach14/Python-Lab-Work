@@ -1,0 +1,5 @@
+a=int(input("Enter num1:" ))
+b=int(input("Enter num2:" ))
+c=int(input("Enter num3:" ))
+print("Sum: ",a+b+c)
+print("Product: ",a*b*c)
