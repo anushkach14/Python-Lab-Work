@@ -1,3 +1,4 @@
+import math
 r=float(input("Enter radius of circle: "))
-area=22/7*r*r
-print("Area of circle: ",area)
+area=math.pi*r*r
+print(f"Area of circle: {area:.3f}")
