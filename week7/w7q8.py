@@ -11,7 +11,7 @@ def separate(nums):
     return even_nums, odd_nums
 
 
-nums = [12, 45, 67, 23, 44, 89, 56, 78]
+nums =[int(x) for x in input("Enter list elements: ").split()]
 even_nums, odd_nums = separate(nums)
 
 print("Even numbers:", even_nums)
