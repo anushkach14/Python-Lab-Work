@@ -1,3 +1,3 @@
-mylist=[int(x) for x in input("enter elements: ").split()]
-res=sum(mylist)
-print(res)
+num=list(map(int,input("Enter numbers in the list to add: ").split()))
+add=sum(num)
+print(add)
