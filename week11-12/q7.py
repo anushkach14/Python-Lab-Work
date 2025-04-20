@@ -1,37 +1,18 @@
 import sys
+def matrix_chain_order(p):
+    n = len(p) - 1
+    dp = [[0] * n for _ in range(n)]
 
-p = [2,4,5,6]
+    for length in range(2, n + 1):
+        for i in range(n - length + 1):
+            j = i + length - 1
+            dp[i][j] = sys.maxsize
+            for k in range(i, j):
+                cost = dp[i][k] + dp[k+1][j] + p[i] * p[k+1] * p[j+1]
+                dp[i][j] = min(dp[i][j], cost)
 
-def MatrixChainOrder(p):
-    n = len(p)
-    #create the table to store solutions to sub problems
-    m = [[0 for x in range(n)] for x in range(n)]
- 
-    # l is the length of the chain
-    for l in range(2,n):
+    return dp[0][n-1]
 
-        for i in range(1,n-l+1):
-            j = i+l-1
-
-            #store a maximum integer in the table for further comparison
-
-            m[i][j] = sys.maxsize
-
-            for k in range(i,j):
-
-                #q holds the value of multiplication cost till j elements
-
-                q=m[i][k]+m[k+1][j]+p[i-1]*p[k]*p[j]
-
-                #compare previous cost with q
-
-                if q < m[i][j]:
-
-                    m[i][j]=q
-
-    #last element of first row contains the result to the entire problem
-
-    return m[1][n-1]
-
-result = MatrixChainOrder(p)
-print("Minimum number of multiplications is:", result)
+p = [30, 35, 15, 5, 10, 20, 25]
+min_cost = matrix_chain_order(p)
+print("Minimum number of multiplications:", min_cost)
