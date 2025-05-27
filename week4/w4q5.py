@@ -8,3 +8,6 @@ def sum(n):
 num = int(input("Enter a decimal integer: "))
 
 print(f"The sum of the digits of {num} is: {sum(num)}")
+''' or
+n=[int(x) for x in input("Enter an integer: ")]
+print(sum(n))
